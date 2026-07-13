@@ -19,15 +19,18 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.metrics import mean_absolute_error, mean_squared_error
+from pathlib import Path
 
 st.set_page_config(page_title="Sales Forecasting Dashboard", layout="wide")
 
 # ----------------------------------------------------------------------------
 # DATA LOADING (cached so it only re-runs when the underlying file changes)
 # ----------------------------------------------------------------------------
+BASE_DIR = Path(__file__).parent
+
 @st.cache_data
 def load_data():
-    df = pd.read_csv("train.csv")
+    df = pd.read_csv(BASE_DIR / "train.csv")
     df['Order Date'] = pd.to_datetime(df['Order Date'], format='%d/%m/%Y')
     df['Ship Date'] = pd.to_datetime(df['Ship Date'], format='%d/%m/%Y')
     df['Order Year'] = df['Order Date'].dt.year
