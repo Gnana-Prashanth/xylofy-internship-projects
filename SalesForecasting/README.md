@@ -31,3 +31,6 @@ This opens at http://localhost:8501
 4. Click "Deploy". The first build takes a few minutes while it installs everything
    listed in `requirements.txt`.
 5. Copy the live `*.streamlit.app` URL it gives you — that's the link to submit.
+
+## Live Demo
+👉 https://prashanth-salesforecasting.streamlit.app
